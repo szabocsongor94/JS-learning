@@ -72,7 +72,7 @@ var state = {
         }
       }
   
-      // state change
+      
       state.products[foundIndex] = {
         id: state.editedId,
         name: name,
@@ -81,7 +81,7 @@ var state = {
       };
       state.editedId = '';
   
-      // render
+      
       renderProducts();
       renderEditProduct();
   
@@ -119,7 +119,7 @@ var state = {
     }
   
     for(var deleteBtn of document.querySelectorAll('.delete-product')) {
-      // action
+      
       deleteBtn.onclick = function (event) {
         var id = event.target.dataset.productid;
   
@@ -131,10 +131,10 @@ var state = {
           }
         }
   
-        // state change
+        
         state.products.splice(foundIndex, 1);
         
-        // render
+        
         renderProducts();
       }
     }
@@ -143,17 +143,14 @@ var state = {
   
   window.onload = renderProducts;
   
-  // action, state change, render
-  // tömbhöz új elem hozzáadása: state.products.push({name: '...', price: 2500, isInStock: false})
   
-  // action
   document.getElementById("create-product").onsubmit = function(event) {
     event.preventDefault();
     var price = Number(event.target.elements.price.value);
     var name = event.target.elements.name.value;
     var isInStock = event.target.elements.isInStock.checked;
   
-    // state change
+
     state.products.push({
       id: uuidv4(),
       name: name,
@@ -161,7 +158,7 @@ var state = {
       isInStock: isInStock
     });
   
-    // render
+    
     renderProducts();
   };
   
